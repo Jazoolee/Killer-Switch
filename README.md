@@ -19,20 +19,29 @@ Table of contents
 <!--te-->
 
 ## Abstract
-This project was undertaken as part of the EN2091 Module, specifically in fulfillment of the "Analog Design Project". The objective of this project was to deepen our foundational understanding of analog electronics and expose us to the challenges within that domain. As per those requirements, we built this device mostly out of analog electronic components such as opamps, diodes and transistors. After referring many sources such as Journals and Videos,
-* The initial simulations were made using Proteus and LTspice, then the circuit was transferred to the breadboard for further testing.
-* The components were carefully selected according to our needs and by trial and error.
+This project was undertaken as part of the EN1190 Module Engineering Design Project". The objective of this module was to introduce us to the engineering design experience and give us a hands on project experience.
+
+* This is a micro-controller based project focusing on power saving and automation.  
+* The components were carefully selected according to our needs, sourced locally and hand soldered.
 * The PCB was designed in Altium Designer.
 * The enclosure was designed in Solid Works.
 
 ## Introduction 
 
-<p align="center">
-  <img alt="architecture" src="Images/product_arch.png" width="25%">
+<p align="left">
+  <img alt="architecture" src="Images/product_arch.png" width="45%">
 </p>
 
+* Our goal was to find a simple solution to energy wastage. One of the problem we observed was that, people regularly forgetting to turn off electrical appliances. So we made a system that will automate this process.
+* Our transmitter module detects the presense and count of humans, in a room, using ultrasonic sensors, to wirelessly power on/off specific appliances such as lights, fans etc.
+* Using the data from ultrasonic sensors the MCU sends a message to the reciever using a radio transicever (nRF24L01).
+* Upon recieving the message, the MCU in the reciever uses that to control a multi channel relay.
+* The relay can be bypassed using manual switches. so for the naked eye our system looks like a regular household switch while acting smart.
 
 ## Code
+
+* Our code is completed written in C++ to work with common microcontrollers.
+* It uses some special libraries to configure the ultra sonic sensors and to establish communication with the radio trancievers.
 
 ## Schematic & PCB
 We have designed two different PCB's for the transmitter and the reciever. The schematic of the PCB was drawn initially by hand and then was transferred into a standard schematic accordingly using Altium. The PCB was made as small as much as possible to fit into commonly used placement brackets. This is a two layered PCB Design which utilizes power and ground copper pours for signal integrity. Standard footprints from reputed manufacturers were used to ensure quality.
@@ -44,7 +53,7 @@ We have designed two different PCB's for the transmitter and the reciever. The s
 * Components were sourced locally and the pcb was printed abroad.
 
 <p align="center">
-  <img alt="transmitter_pcb" src="Images/transmitter_pcb.png" width="25%">
+  <img alt="transmitter_pcb" src="Images/transmitter_pcb.png" width="35%">
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img alt="reciever_pcb" src="Images/reciever_pcb.png" width="25%">
 </p>
